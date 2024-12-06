@@ -36,8 +36,8 @@ const isOpen = new Stater();
 
 const app = express();
 
-// Middleware to parse JSON requests
-app.use(express.json());
+// Middleware to parse JSON requests with an increased payload size limit
+app.use(express.json({ limit: '10mb' })); // Increase this limit as needed
 
 // Function to clean a database file if it exceeds the size limit
 async function cleanDatabase(filePath) {
